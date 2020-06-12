@@ -2,9 +2,12 @@
 
 cwlVersion: v1.0
 class: Workflow
-label:
+label: Example of setting up a simulation system
 doc: |
-  Mock description
+  Common Workflow Language example that illustrate the process of setting up a
+  simulation system containing a protein, step by step, using the BioExcel
+  Building Blocks library (biobb). The particular example used is the Lysozyme
+  protein (PDB code 1AKI).
 
 inputs:
   step1_pdb_name: string
