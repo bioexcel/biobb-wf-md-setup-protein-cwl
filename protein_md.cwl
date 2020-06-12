@@ -32,45 +32,97 @@ inputs:
 
 outputs:
   trr:
-    label: Place holder label
+    label: Trajectories - Raw trajectory
     doc: |
-      Longer description. We can have a label and doc per input/output
+      Raw trajectory from the free simulation step
     type: File
     outputSource: step18_mdrun_md/output_trr_file
+    
   trr_imaged_dry:
+    label: Trajectories - Post-processed trajectory
+    doc: |
+      Post-processed trajectory, dehydrated, imaged (rotations and translations
+      removed) and centered.
     type: File
     outputSource: step22_image/output_traj_file
+    
   gro_dry:
+    label: Resulting protein structure
+    doc: |
+      Resulting protein structure taken from the post-processed trajectory, to
+      be used as a topology, usually for visualization purposes.
     type: File
     outputSource: step23_dry/output_str_file
+    
   gro:
+    label: Structures - Raw structure
+    doc: |
+      Raw structure from the free simulation step.
     type: File
     outputSource: step18_mdrun_md/output_gro_file
+
   cpt:
+    label: Checkpoint file
+    doc: |
+      GROMACS portable checkpoint file, allowing to restore (continue) the
+      simulation from the last step of the setup process.
     type: File
     outputSource: step18_mdrun_md/output_cpt_file
+
   tpr:
+    label: Topologies GROMACS portable binary run
+    doc: |
+      GROMACS portable binary run input file, containing the starting structure
+      of the simulation, the molecular topology and all the simulation parameters.
     type: File
     outputSource: step17_grompp_md/output_tpr_file
+
   top:
+    label: GROMACS topology file
+    doc: |
+      GROMACS topology file, containing the molecular topology in an ASCII
+      readable format.
     type: File
     outputSource: step7_genion/output_top_zip_file
+    
   xvg_min:
+    label: System Setup Observables - Potential Energy
+    doc: |
+      Potential energy of the system during the minimization step.
     type: File
     outputSource: step10_energy_min/output_xvg_file
+
   xvg_nvt:
+    label: System Setup Observables - Temperature
+    doc: |
+      Temperature of the system during the NVT equilibration step.
     type: File
     outputSource: step13_energy_nvt/output_xvg_file
+    
   xvg_npt:
+    label: System Setup Observables - Pressure and density 
     type: File
     outputSource: step16_energy_npt/output_xvg_file
+    
   xvg_rmsfirst:
+    label: Simulation Analysis
+    doc: |
+      Root Mean Square deviation (RMSd) throughout the whole free simulation
+      step against the first snapshot of the trajectory (equilibrated system).
     type: File
     outputSource: step19_rmsfirst/output_xvg_file
   xvg_rmsexp:
+    label: Simulation Analysis
+    doc: |
+      Root Mean Square deviation (RMSd) throughout the whole free simulation
+      step against the experimental structure (minimized system).
     type: File
     outputSource: step20_rmsexp/output_xvg_file
+    
   xvg_rgyr:
+    label: Simulation Analysis
+    doc: |
+      Radius of Gyration (RGyr) of the molecule throughout the whole free simulation step
     type: File
     outputSource: step21_rgyr/output_xvg_file
 
