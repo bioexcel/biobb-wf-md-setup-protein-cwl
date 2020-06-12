@@ -2,6 +2,10 @@
 
 cwlVersion: v1.0
 class: Workflow
+label:
+doc: |
+  Mock description
+
 inputs:
   step1_pdb_name: string
   step1_pdb_config: string
@@ -28,6 +32,9 @@ inputs:
 
 outputs:
   trr:
+    label: Place holder label
+    doc: |
+      Longer description. We can have a label and doc per input/output
     type: File
     outputSource: step18_mdrun_md/output_trr_file
   trr_imaged_dry:
@@ -69,6 +76,7 @@ outputs:
 
 steps:
   step1_pdb:
+    label: Fetch PDB Structure
     run: biobb_adapters/pdb.cwl
     in:
       output_pdb_path: step1_pdb_name
@@ -76,24 +84,28 @@ steps:
     out: [output_pdb_file]
 
   step2_fixsidechain:
+    label: Fix Protein structure
     run: biobb_adapters/fix_side_chain.cwl
     in:
       input_pdb_path: step1_pdb/output_pdb_file
     out: [output_pdb_file]
 
   step3_pdb2gmx:
+    label: Create Protein System Topology
     run: biobb_adapters/pdb2gmx.cwl
     in:
       input_pdb_path: step2_fixsidechain/output_pdb_file
     out: [output_gro_file, output_top_zip_file]
 
   step4_editconf:
+    label: Create Solvent Box
     run: biobb_adapters/editconf.cwl
     in:
       input_gro_path: step3_pdb2gmx/output_gro_file
     out: [output_gro_file]
 
   step5_solvate:
+    label: Fill the Box with Water Molecules
     run: biobb_adapters/solvate.cwl
     in:
       input_solute_gro_path: step4_editconf/output_gro_file
@@ -101,6 +113,7 @@ steps:
     out: [output_gro_file, output_top_zip_file]
 
   step6_grompp_genion:
+    label: Add Ions - part 1
     run: biobb_adapters/grompp.cwl
     in:
       config: step6_gppion_config
@@ -109,6 +122,7 @@ steps:
     out: [output_tpr_file]
 
   step7_genion:
+    label: Add Ions - part 2
     run: biobb_adapters/genion.cwl
     in:
       config: step7_genion_config
@@ -117,6 +131,7 @@ steps:
     out: [output_gro_file, output_top_zip_file]
 
   step8_grompp_min:
+    label: Energetically Minimize the System - part 1
     run: biobb_adapters/grompp.cwl
     in:
       config: step8_gppmin_config
@@ -125,12 +140,14 @@ steps:
     out: [output_tpr_file]
 
   step9_mdrun_min:
+    label: Energetically Minimize the System - part 2
     run: biobb_adapters/mdrun.cwl
     in:
       input_tpr_path: step8_grompp_min/output_tpr_file
     out: [output_trr_file, output_gro_file, output_edr_file, output_log_file]
 
   step10_energy_min:
+    label: Energetically Minimize the System - part 3
     run: biobb_adapters/energy.cwl
     in:
       config: step10_energy_min_config
@@ -139,6 +156,7 @@ steps:
     out: [output_xvg_file]
 
   step11_grompp_nvt:
+    label: Equilibrate the System (NVT) - part 1
     run: biobb_adapters/grompp.cwl
     in:
       config: step11_gppnvt_config
@@ -147,12 +165,14 @@ steps:
     out: [output_tpr_file]
 
   step12_mdrun_nvt:
+    label: Equilibrate the System (NVT) - part 2
     run: biobb_adapters/mdrun.cwl
     in:
       input_tpr_path: step11_grompp_nvt/output_tpr_file
     out: [output_trr_file, output_gro_file, output_edr_file, output_log_file, output_cpt_file]
 
   step13_energy_nvt:
+    label: Equilibrate the System (NVT) - part 3
     run: biobb_adapters/energy.cwl
     in:
       config: step13_energy_nvt_config
@@ -161,6 +181,7 @@ steps:
     out: [output_xvg_file]
 
   step14_grompp_npt:
+    label: Equilibrate the System (NPT) - part 1
     run: biobb_adapters/grompp.cwl
     in:
       config: step14_gppnpt_config
@@ -170,12 +191,14 @@ steps:
     out: [output_tpr_file]
 
   step15_mdrun_npt:
+    label: Equilibrate the System (NPT) - part 2
     run: biobb_adapters/mdrun.cwl
     in:
       input_tpr_path: step14_grompp_npt/output_tpr_file
     out: [output_trr_file, output_gro_file, output_edr_file, output_log_file, output_cpt_file]
 
   step16_energy_npt:
+    label: Equilibrate the System (NPT) - part 3
     run: biobb_adapters/energy.cwl
     in:
       config: step16_energy_npt_config
@@ -184,6 +207,7 @@ steps:
     out: [output_xvg_file]
 
   step17_grompp_md:
+    label: Free Molecular Dynamics Simulation - part 1
     run: biobb_adapters/grompp.cwl
     in:
       config: step17_gppmd_config
@@ -193,12 +217,14 @@ steps:
     out: [output_tpr_file]
 
   step18_mdrun_md:
+    label: Free Molecular Dynamics Simulation - part 2
     run: biobb_adapters/mdrun.cwl
     in:
       input_tpr_path: step17_grompp_md/output_tpr_file
     out: [output_trr_file, output_gro_file, output_edr_file, output_log_file, output_cpt_file]
 
   step19_rmsfirst:
+    label: Post-processing Resulting 3D Trajectory - part 1
     run: biobb_adapters/rms.cwl
     in:
       config: step19_rmsfirst_config
@@ -208,6 +234,7 @@ steps:
     out: [output_xvg_file]
 
   step20_rmsexp:
+    label: Post-processing Resulting 3D Trajectory - part 2
     run: biobb_adapters/rms.cwl
     in:
       config: step20_rmsexp_config
@@ -217,6 +244,7 @@ steps:
     out: [output_xvg_file]
 
   step21_rgyr:
+    label: Post-processing Resulting 3D Trajectory - part 3
     run: biobb_adapters/rgyr.cwl
     in:
       config: step21_rgyr_config
@@ -225,6 +253,7 @@ steps:
     out: [output_xvg_file]
 
   step22_image:
+    label: Post-processing Resulting 3D Trajectory - part 4
     run: biobb_adapters/gmximage.cwl
     in:
       config: step22_image_config
@@ -233,6 +262,7 @@ steps:
     out: [output_traj_file]
 
   step23_dry:
+    label: Post-processing Resulting 3D Trajectory - part 5
     run: biobb_adapters/gmxtrjconvstr.cwl
     in:
       config: step23_dry_config
