@@ -203,7 +203,7 @@ steps:
 
   step10_energy_min:
     label: Energetically Minimize the System - part 3
-    run: biobb_adapters/energy.cwl
+    run: biobb/biobb_adapters/cwl/biobb_analysis/gromacs/gmx_energy.cwl
     in:
       config: step10_energy_min_config
       output_xvg_path: step10_energy_min_name
@@ -228,7 +228,7 @@ steps:
 
   step13_energy_nvt:
     label: Equilibrate the System (NVT) - part 3
-    run: biobb_adapters/energy.cwl
+    run: biobb/biobb_adapters/cwl/biobb_analysis/gromacs/gmx_energy.cwl
     in:
       config: step13_energy_nvt_config
       output_xvg_path: step13_energy_nvt_name
@@ -254,7 +254,7 @@ steps:
 
   step16_energy_npt:
     label: Equilibrate the System (NPT) - part 3
-    run: biobb_adapters/energy.cwl
+    run: biobb/biobb_adapters/cwl/biobb_analysis/gromacs/gmx_energy.cwl
     in:
       config: step16_energy_npt_config
       output_xvg_path: step16_energy_npt_name
@@ -280,7 +280,7 @@ steps:
 
   step19_rmsfirst:
     label: Post-processing Resulting 3D Trajectory - part 1
-    run: biobb_adapters/rms.cwl
+    run: biobb/biobb_adapters/cwl/biobb_analysis/gromacs/gmx_rms.cwl
     in:
       config: step19_rmsfirst_config
       output_xvg_path: step19_rmsfirst_name
@@ -290,7 +290,7 @@ steps:
 
   step20_rmsexp:
     label: Post-processing Resulting 3D Trajectory - part 2
-    run: biobb_adapters/rms.cwl
+    run: biobb/biobb_adapters/cwl/biobb_analysis/gromacs/gmx_rms.cwl
     in:
       config: step20_rmsexp_config
       output_xvg_path: step20_rmsexp_name
@@ -300,7 +300,7 @@ steps:
 
   step21_rgyr:
     label: Post-processing Resulting 3D Trajectory - part 3
-    run: biobb_adapters/rgyr.cwl
+    run: biobb/biobb_adapters/cwl/biobb_analysis/gromacs/gmx_rgyr.cwl
     in:
       config: step21_rgyr_config
       input_structure_path: step8_grompp_min/output_tpr_file
@@ -309,7 +309,7 @@ steps:
 
   step22_image:
     label: Post-processing Resulting 3D Trajectory - part 4
-    run: biobb_adapters/gmximage.cwl
+    run: biobb/biobb_adapters/cwl/biobb_analysis/gromacs/gmx_image.cwl
     in:
       config: step22_image_config
       input_top_path: step17_grompp_md/output_tpr_file
@@ -318,7 +318,7 @@ steps:
 
   step23_dry:
     label: Post-processing Resulting 3D Trajectory - part 5
-    run: biobb_adapters/gmxtrjconvstr.cwl
+    run: biobb/biobb_adapters/cwl/biobb_analysis/gromacs/gmx_trjconv_str.cwl
     in:
       config: step23_dry_config
       input_structure_path: step18_mdrun_md/output_gro_file
