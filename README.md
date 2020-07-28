@@ -11,7 +11,7 @@ protein (PDB code 1AKI).
 
 * [CWLtool](https://github.com/common-workflow-language/cwltool) 
 * [Docker](https://www.docker.com/)
-* [Git] (https://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 
 Instructions for installing both of these are available on the linked websites.
@@ -30,9 +30,9 @@ This means that **you cannot download a zip** and must **clone the repository in
 
 To clone the repository and setup the submodules, you need to do the following three setps:
 
-#. Clone the repository to the machine you want to use it on.
-#. Change into that directory
-#. Initialise the submodules, which downloads the required submodules to teh machine.
+1. Clone the repository to the machine you want to use it on.
+2. Change into that directory
+2. Initialise the submodules, which downloads the required submodules to the machine.
 
 These steps can be done with the following commands:
 
