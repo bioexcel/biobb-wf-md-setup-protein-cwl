@@ -1,7 +1,7 @@
 # BioExcel CWL example simulation system
 
 ### Introduction
-Common Workflow Language example that illustrate the process of setting up a
+Common Workflow Language example that illustrates the process of setting up a
 simulation system containing a protein, step by step, using the BioExcel
 Building Blocks library (biobb). The particular example used is the Lysozyme
 protein (PDB code 1AKI).
@@ -71,9 +71,11 @@ This workflow takes around 30 minutes to 1 hour to run on a quad-core Intel i5 p
 
 ### Outputs
 
+Whilst this is running a lot of output will be printed to the screen.  The final part will list all of the output files created and it should then say:
 
-
-
+```
+Final process status is success
+```
 
 
 ### Copyright & Licensing
