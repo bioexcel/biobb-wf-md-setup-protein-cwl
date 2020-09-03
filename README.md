@@ -79,6 +79,10 @@ Final process status is success
 
 
 ### Copyright & Licensing
-This software has been developed in the [eScience Lab](https://esciencelab.org.uk/) and [Research IT](https://esciencelab.org.uk/) groups at the [University of Manchester](https://www.manchester.ac.uk/) as part of [BioExcel](https://bioexcel.ebi.ac.uk/)
 
+This software has been developed in the [MMB group](http://mmb.irbbarcelona.org/www/) at the [BSC](https://www.bsc.es/) & [IRB](https://www.irbbarcelona.org/en); and in the [eScience Lab](https://esciencelab.org.uk/) and [Research IT](https://esciencelab.org.uk/) groups at the [University of Manchester](https://www.manchester.ac.uk/) for the European BioExcel, funded by the European Commission (EU H2020 823830, EU H2020 675728).
+
+(c) 2015-2020 Barcelona Supercomputing Center
+(c) 2015-2020 Institute for Research in Biomedicine
+(c) 2019-2020 University of Manchester
 Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0), see the file LICENSE for details.
