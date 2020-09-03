@@ -55,7 +55,7 @@ Before running the simulation, make sure that docker is [running and installed](
 
 There are two parts to this example (or any CWL example): The workflow file, which describes the workflow, and the input file which specifies the inputs,outputs and other configurable options.
 
-* `protein_md.cwl` is the workflwo file.
+* `protein_md.cwl` is the workflow file.
 * `protein_md_input_description.yml` is the input or configuration file.
 
 
