@@ -80,7 +80,7 @@ Final process status is success
 
 ### Copyright & Licensing
 
-This software has been developed in the [MMB group](http://mmb.irbbarcelona.org/www/) at the [BSC](https://www.bsc.es/) & [IRB](https://www.irbbarcelona.org/en); and in the [eScience Lab](https://esciencelab.org.uk/) and [Research IT](https://esciencelab.org.uk/) groups at the [University of Manchester](https://www.manchester.ac.uk/) for the European BioExcel, funded by the European Commission (EU H2020 823830, EU H2020 675728).
+This software has been developed in the [MMB group](http://mmb.irbbarcelona.org/www/) at the [BSC](https://www.bsc.es/) & [IRB](https://www.irbbarcelona.org/en); and in the [eScience Lab](https://esciencelab.org.uk/) and [Research IT](https://research-it.manchester.ac.uk/) groups at the [University of Manchester](https://www.manchester.ac.uk/) for the European BioExcel, funded by the European Commission (EU H2020 823830, EU H2020 675728).
 
 (c) 2015-2020 Barcelona Supercomputing Center
 (c) 2015-2020 Institute for Research in Biomedicine
