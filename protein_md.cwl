@@ -132,6 +132,8 @@ outputs:
 steps:
   step1_pdb:
     label: Fetch PDB Structure
+    doc: |
+      Download a protein structure from the PDB database
     run: biobb/biobb_adapters/cwl/biobb_io/mmb_api/pdb.cwl
     in:
       output_pdb_path: step1_pdb_name
@@ -140,6 +142,9 @@ steps:
 
   step2_fixsidechain:
     label: Fix Protein structure
+    doc: |
+      Fix the side chains, adding any side chain atoms missing in the
+      original structure.
     run: biobb/biobb_adapters/cwl/biobb_model/model/fix_side_chain.cwl
     in:
       input_pdb_path: step1_pdb/output_pdb_file
