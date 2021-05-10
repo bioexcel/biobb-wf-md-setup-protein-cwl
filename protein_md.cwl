@@ -2,7 +2,7 @@
 
 cwlVersion: v1.0
 class: Workflow
-label: Example of setting up a simulation system
+label: Protein Ligand Complex MD Setup tutorial using BioExcel Building Blocks (biobb)
 doc: |
   Common Workflow Language example that illustrate the process of setting up a
   simulation system containing a protein, step by step, using the BioExcel
