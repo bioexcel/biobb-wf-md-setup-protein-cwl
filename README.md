@@ -2,8 +2,8 @@
 
 ### Introduction
 Common Workflow Language example that illustrates the process of setting up a
-simulation system containing a protein, step by step, using the BioExcel
-Building Blocks library (biobb). The particular example used is the Lysozyme
+simulation system containing a protein, step by step, using the [BioExcel
+Building Blocks library](https://mmb.irbbarcelona.org/biobb/) (biobb). The particular example used is the Lysozyme
 protein (PDB code 1AKI).
 
 
